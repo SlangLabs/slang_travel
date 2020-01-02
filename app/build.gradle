@@ -21,7 +21,7 @@ android {
 dependencies {
 
 //    implementation project(':slang_lib')
-    implementation('in.slanglabs.sdk.android:slang_lib:1.0.25')
+    implementation('in.slanglabs.sdk.android:slang_lib:1.0.26')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
