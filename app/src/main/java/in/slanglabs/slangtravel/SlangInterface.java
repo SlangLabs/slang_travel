@@ -62,14 +62,6 @@ public class SlangInterface {
         return Status.SUCCESS;
     }
 
-    /**
-     * Action for sort_train intent 
-     */
-    private static Status doSortTrain(SlangSession slangSession, String sortItem, String sortType) {
-        Toast.makeText(sApplication, "Recognized sort_train intent", Toast.LENGTH_LONG).show();  // TODO: FIXME: implement it
-        return Status.SUCCESS;
-    }
-
     /****************************************************************
      * Standard boiler plate goes here.
      ***************************************************************/
@@ -82,10 +74,6 @@ public class SlangInterface {
     public static final String UNSUPPORTED_FEATURES_UNSUPPORTEDACTIONS = "UnsupportedActions";
     public static final String UNSUPPORTED_FEATURES_SEARCH_ITEM = "search_item";
     public static final String UNSUPPORTED_FEATURES_SEARCH_PREFIX = "search_prefix";
-
-    public static final String SORT_TRAIN = "sort_train";
-    public static final String SORT_TRAIN_SORT_ITEM = "sort_item";
-    public static final String SORT_TRAIN_SORT_TYPE = "sort_type";
 
     public static final String SEARCH_TRAIN = "search_train";
     public static final String SEARCH_TRAIN_DEST_CITY = "dest_city";
@@ -193,21 +181,6 @@ public class SlangInterface {
                             : null;
 
                     return doUnsupportedFeatures(slangSession, unsupportedFeaturesUnsupportedactions, unsupportedFeaturesSearchItem, unsupportedFeaturesSearchPrefix);
-
-                case SORT_TRAIN:
-                    String sortTrainSortItem =
-                        slangIntent.getEntity(SORT_TRAIN_SORT_ITEM) != null &&
-                        slangIntent.getEntity(SORT_TRAIN_SORT_ITEM).isResolved() ?
-                            slangIntent.getEntity(SORT_TRAIN_SORT_ITEM).getValue()
-                            : null;
-
-                    String sortTrainSortType =
-                        slangIntent.getEntity(SORT_TRAIN_SORT_TYPE) != null &&
-                        slangIntent.getEntity(SORT_TRAIN_SORT_TYPE).isResolved() ?
-                            slangIntent.getEntity(SORT_TRAIN_SORT_TYPE).getValue()
-                            : null;
-
-                    return doSortTrain(slangSession, sortTrainSortItem, sortTrainSortType);
 
                 case SEARCH_TRAIN:
                     String searchTrainDestCity =
